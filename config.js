@@ -32,7 +32,7 @@ global.APIKeys = { // APIKey nya disini
 // Sticker WM
 global.packname = '\n'
 global.author = 'Follow IG:\n\n@ningenkankei.id\n@khaelll._'
-
+global.watermark = '© Khael'
 global.wm = '© stikerinbot'
 global.wait = '_*tunggu sedang diproses...*_'
 global.eror = '_*Server Error*_'
