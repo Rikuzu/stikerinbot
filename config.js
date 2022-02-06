@@ -1,47 +1,60 @@
+// Budayakan membaca NGENTOT || Important to read MOTHERFUCKER
+// ------------------------------------------------------------------------ \\
+// Source Code by @stikerin || thanks to @Nurutomo - @arriefb & others contributors
+// This Source code has recode by me @Khael
+// Follow my Social Media: @khaelll._ (Instagram) & Khael-san (Facebook)
+// U can use my Source Code or take plugins but don't forget to put my name!
+// Last, use u'r APIkey AssHole!!!
+// This script is more towards WhatsApp bot that run on Heroku or the web so on
+// ------------------------------------------------------------------------ \\
+
 let fs = require('fs')
 let chalk = require('chalk')
 
-global.owner = ['32460222094', '6282248192917'] // Letakan nomor kamu disini
+global.owner = ['32460222094', '6282248192917']
 
 global.APIs = { // API Prefix
-  // nama: 'https://website'
-  amel: 'https://melcanz.com',
-  bx: 'https://bx-hunter.herokuapp.com',
-  rey: 'https://server-api-rey.herokuapp.com',
-  dhnjing: 'https://dhnjing.xyz',
-  hardianto: 'https://hardianto-chan.herokuapp.com',
-  neoxr: 'https://api.neoxr.eu.org',
-  nrtm: 'https://nurutomo.herokuapp.com',
-  pencarikode: 'https://pencarikode.xyz',
-  waifupics: 'https://api.waifu.pics',
-  xteam: 'https://api.xteam.xyz',
-  zeks: 'https://api.zeks.me',
+	amel: 'https://melcanz.com',
+	bx: 'https://bx-hunter.herokuapp.com',
+	rey: 'https://server-api-rey.herokuapp.com',
+	dhnjing: 'https://dhnjing.xyz',
+	hardianto: 'https://hardianto-chan.herokuapp.com',
+	neoxr: 'https://api.neoxr.eu.org',
+	nrtm: 'https://nurutomo.herokuapp.com',
+	pencarikode: 'https://pencarikode.xyz',
+	waifupics: 'https://api.waifu.pics',
+	xteam: 'https://api.xteam.xyz',
+	zeks: 'https://api.zeks.me',
+	leys: 'https://leyscoders-api.herokuapp.com',
+	dap: 'https://api.dapuhy.xyz',
 }
-global.APIKeys = { // APIKey nya disini
-  // 'https://website': 'apikey'
+global.APIKeys = { // put your APIkey here
   'https://melcanz.com': 'trial',
   'https://server-api-rey.herokuapp.com': 'apirey',
   'https://bx-hunter.herokuapp.com': 'Ikyy69',
   'https://hardianto-chan.herokuapp.com': 'hardianto',
   'https://neoxr-api.herokuapp.com': 'yntkts',
   'https://pencarikode.xyz': 'pais',
-  'https://api.xteam.xyz': 'apikeymu',
-  'https://api.zeks.xyz': 'apivinz',
+  'https://api.xteam.xyz': 'cd6537ea8548c561', // Don't stole my Apikey AssHole!! register on the website right away!
+  'https://api.zeks.xyz': 'ShiroNeko',
+  'https://leyscoders-api.herokuapp.com': 'dappakntlll',
+  'https://api.dapuhy.xyz': 'Kontolodon', // backup 'Dappangentot' || Don't stole my Apikey AssHole!! register on the website right away!
 }
 
 // Sticker WM
-global.packname = '\n'
-global.author = 'Follow IG:\n\n@ningenkankei.id\n@khaelll._'
-global.watermark = '© Khael'
-global.wm = '© stikerinbot'
-global.wait = '_*tunggu sedang diproses...*_'
-global.eror = '_*Server Error*_'
+global.packname = ''
+global.author = '𝙁𝙤𝙡𝙡𝙤𝙬 𝙄𝙣𝙨𝙩𝙖𝙜𝙧𝙖𝙢:\n\n • @ningenkankei.id\n • @khaelll._'
+
+global.watermark = '© khael'
+global.wm = '© WhatsApp Bot'
+global.wait = '```Chottomatte kudasai```'
+global.eror = '*_MAY SOMETHING ERROR_*'
 global.benar = '✅'
 global.salah = '❌'
-global.dikit = 'dikit lagi'
+global.dikit = 'Hampir benar'
 global.fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text='
 
-global.multiplier = 69 // Semakin tinggi, semakin sulit naik level
+global.multiplier = 1000000 // Semakin tinggi, semakin sulit naik level
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {

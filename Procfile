@@ -1,1 +1,1 @@
-web: node . --server --self
+web: node . --server

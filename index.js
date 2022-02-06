@@ -4,15 +4,15 @@ let path = require('path')
 let fs = require('fs')
 let package = require('./package.json')
 const CFonts = require('cfonts')
-CFonts.say('Stikerin Bot', {
-  colors: ['#f2aa4c'],
-  font: 'block',
+CFonts.say('WhatsApp Bot\nStikerin', {
+  colors: ['cyanBright'],
+  font: 'chrome',
   align: 'center',
 })
-CFonts.say(`'${package.name}' Oleh @${package.author.name || package.author}`, {
-  colors: ['#f2aa4c'],
+CFonts.say(`WhatsApp Bot by Khael recode from stikerin-bot`, {
+  colors: ['red'],
   font: 'console',
-  align: 'center',
+  align: 'right',
 })
 
 var isRunning = false
@@ -27,7 +27,7 @@ function start(file) {
   CFonts.say([process.argv[0], ...args].join(' '), {
     colors: ['#f2aa4c'],
     font: 'console',
-    align: 'center',
+    align: 'right',
   })
   let p = spawn(process.argv[0], args, {
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']

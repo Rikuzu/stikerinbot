@@ -31,7 +31,7 @@ module.exports = {
         if (typeof user !== 'object') global.db.data.users[m.sender] = {}
         if (user) {
           if (!isNumber(user.exp)) user.exp = 0
-          if (!isNumber(user.limit)) user.limit = 10
+          if (!isNumber(user.limit)) user.limit = 100
           if (!isNumber(user.lastclaim)) user.lastclaim = 0
           if (!('registered' in user)) user.registered = false
           if (!user.registered) {
@@ -53,7 +53,7 @@ module.exports = {
           if (!isNumber(user.premiumTime)) user.premiumTime = 0
         } else global.db.data.users[m.sender] = {
           exp: 0,
-          limit: 10,
+          limit: 100,
           lastclaim: 0,
           registered: false,
           name: this.getName(m.sender),
@@ -87,11 +87,11 @@ module.exports = {
           if (!('antiLink' in chat)) chat.antiLink = false
           if (!('delete' in chat)) chat.delete = true
           if (!('descUpdate' in chat)) chat.descUpdate = true
-          if (!('download' in chat)) chat.download = true
+          if (!('download' in chat)) chat.download = false
           if (!isNumber(chat.expired)) chat.expired = 0
           if (!('getmsg' in chat)) chat.getmsg = false
-          if (!('read' in chat)) chat.read = true
-          if (!('stiker' in chat)) chat.stiker = false
+          if (!('read' in chat)) chat.read = false
+          if (!('stiker' in chat)) chat.stiker = true
           if (!('viewonce' in chat)) chat.viewonce = true
         } else global.db.data.chats[m.chat] = {
           isBanned: false,
@@ -105,11 +105,11 @@ module.exports = {
           antiLink: false,
           delete: true,
           descUpdate: true,
-          download: true,
+          download: false,
           expired: 0,
           getmsg: false,
-          read: true,
-          stiker: false,
+          read: false,
+          stiker: true,
           viewonce: true,
         }
 
@@ -119,13 +119,13 @@ module.exports = {
           if (!'anon' in settings) settings.anon = true
           if (!'anticall' in settings) settings.anticall = true
           if (!'antispam' in settings) settings.antispam = true
-          if (!'antitroli' in settings) settings.antitroli = true
+          if (!'antitroli' in settings) settings.antitroli = false
           if (!'autoupdatestatus' in settings) settings.autoupdatestatus = false
           if (!'backup' in settings) settings.backup = false
           if (!'buggc' in settings) settings.buggc = true
           if (!isNumber(settings.backupTime)) settings.backupTime = 0
           if (!'group' in settings) settings.group = false
-          if (!'jadibot' in settings) settings.jadibot = false
+          if (!'jadibot' in settings) settings.jadibot = true
           if (!'nsfw' in settings) settings.nsfw = true
           if (!'restrict' in settings) settings.restrict = false
           if (!'self' in settings) settings.self = false
@@ -134,13 +134,13 @@ module.exports = {
           anon: true,
           anticall: true,
           antispam: true,
-          antitroli: true,
+          antitroli: false,
           autoupdatestatus: false,
           backup: false,
           buggc: true,
           backupTime: 0,
           group: false,
-          jadibot: false,
+          jadibot: true,
           nsfw: true,
           restrict: false,
           self: false,
@@ -251,29 +251,29 @@ module.exports = {
             fail('owner', m, this)
             continue
           }
-          if (plugin.rowner && !isROwner) { // Owner sebenarnya
+          if (plugin.rowner && !isROwner) { // Owner Utama || Main Owner
             fail('rowner', m, this)
             continue
           }
-          if (plugin.owner && !isOwner) { // Owner bot
+          if (plugin.owner && !isOwner) { 
             fail('owner', m, this)
             continue
           }
-          if (plugin.premium && !isPrems) { // Premium
+          if (plugin.premium && !isPrems) { 
             fail('premium', m, this)
             continue
           }
-          if (plugin.group && !m.isGroup) { // Hanya grup
+          if (plugin.group && !m.isGroup) { // Hanya grup || Only Group
             fail('group', m, this)
             continue
-          } else if (plugin.botAdmin && !isBotAdmin) { // Kamu Admin
+          } else if (plugin.botAdmin && !isBotAdmin) { // Bot is Admin
             fail('botAdmin', m, this)
             continue
-          } else if (plugin.admin && !isAdmin) { // User Admin
+          } else if (plugin.admin && !isAdmin) { // User Admin Group
             fail('admin', m, this)
             continue
           }
-          if (plugin.private && m.isGroup) { // Hanya Private Chat
+          if (plugin.private && m.isGroup) { // Hanya Private Chat || Only Private Chat
             fail('private', m, this)
             continue
           }
@@ -287,11 +287,11 @@ module.exports = {
           }
 
           m.isCommand = true
-          let xp = 'exp' in plugin ? parseInt(plugin.exp) : 17 // Pendapatkan XP per Command
-          if (xp > 200) m.reply('Ngecit -_-') // Hehehe
+          let xp = 'exp' in plugin ? parseInt(plugin.exp) : 69 // Pendapatkan XP per Command
+          if (xp > 800) m.reply('Ngecit -_-') 
           else m.exp += xp
           if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-            this.reply(m.chat, `Limit kamu habis, silahkan beli melalui *${usedPrefix}buy*`, m)
+            this.reply(m.chat, `Limit kamu habis, silahkan tunggu selama 24 jam lagi`, m)
             continue // Limit habis
           }
           if (plugin.level > _user.level) {
@@ -452,8 +452,8 @@ module.exports = {
     await this.sendButton(m.key.remoteJid, `
 Terdeteksi @${m.participant.split`@`[0]} telah menghapus pesan
 
-ketik *.on delete* untuk mematikan pesan ini
-`.trim(), '© stikerin', 'Matikan Antidelete', ',on delete', m.message)
+ketik *.off delete* untuk mematikan pesan ini
+`.trim(), watermark, 'Matikan Antidelete', ',off delete', m.message)
     this.copyNForward(m.key.remoteJid, m.message).catch(e => console.log(e, m))
   },
   async onCall(json) {
@@ -486,7 +486,7 @@ ketik *.on delete* untuk mematikan pesan ini
 
     ${desc} 
         `.trim()
-    this.sendButton(jid, caption, '© stikerin', 'Matikan', ',off desc')
+    this.sendButton(jid, caption, watermark, 'Matikan Auto Desc', ',off desc')
 
   }
 }
