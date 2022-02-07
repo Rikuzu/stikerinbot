@@ -186,10 +186,39 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       }
     })
     if (teks == '404') {
+    	
+    var menubisnis = `┌〔 DAFTAR MENU 〕
+├ ${_p + command} all
+├ ${_p + command} game
+├ ${_p + command} xp
+├ ${_p + command} stiker
+├ ${_p + command} kerang
+├ ${_p + command} quotes
+├ ${_p + command} admin
+├ ${_p + command} group
+├ ${_p + command} premium
+├ ${_p + command} internet
+├ ${_p + command} anonymous
+├ ${_p + command} nulis
+├ ${_p + command} downloader
+├ ${_p + command} tools
+├ ${_p + command} fun
+├ ${_p + command} database
+├ ${_p + command} vote
+├ ${_p + command} quran
+├ ${_p + command} audio
+├ ${_p + command} jadibot
+├ ${_p + command} info
+├ ${_p + command} tanpa kategori
+├ ${_p + command} owner
+└────  
+`.trim()
+await conn.send2ButtonLoc(m.chat, await (await fetch(fla + "List+Menu")).buffer(), menubisnis, 'made with ❤️ by Khael', 'Pemilik Bot', `${_p}owner`, 'Donasi', `${_p}donasi`, m)
+    
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
           "title": `${ucapan()}, ${name}`.trim(),
-          "description": "© stikerin",
+          "description": watermark,
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
           "sections": [
@@ -377,7 +406,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), watermark, 'Pemilik Bot', `${_p}owner`, 'Donasi', `${_p}donasi`, m)
+    await conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), 'made with ❤️ by Khael', 'Pemilik Bot', `${_p}owner`, 'Donasi', `${_p}donasi`, m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
