@@ -128,7 +128,7 @@ module.exports = {
           if (!'jadibot' in settings) settings.jadibot = true
           if (!'nsfw' in settings) settings.nsfw = true
           if (!'restrict' in settings) settings.restrict = false
-          if (!'self' in settings) settings.self = true
+          if (!'self' in settings) settings.self = false
           if (!isNumber(settings.status)) settings.status = 0
         } else global.db.data.settings[this.user.jid] = {
           anon: true,
@@ -143,7 +143,7 @@ module.exports = {
           jadibot: true,
           nsfw: true,
           restrict: false,
-          self: true,
+          self: false,
           status: 0,
         }
       } catch (e) {
