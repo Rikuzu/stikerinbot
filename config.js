@@ -27,6 +27,7 @@ global.APIs = { // API Prefix
 	zeks: 'https://api.zeks.me',
 	leys: 'https://leyscoders-api.herokuapp.com',
 	dap: 'https://api.dapuhy.xyz',
+	lolhum: 'https://api.lolhuman.xyz',
 }
 global.APIKeys = { // put your APIkey here
   'https://melcanz.com': 'trial',
@@ -39,6 +40,7 @@ global.APIKeys = { // put your APIkey here
   'https://api.zeks.xyz': 'ShiroNeko',
   'https://leyscoders-api.herokuapp.com': 'dappakntlll',
   'https://api.dapuhy.xyz': 'Kontolodon', // backup 'Dappangentot' || Don't stole my Apikey AssHole!! register on the website right away!
+  'https://api.lolhuman.xyz': 'NgentotRusa',
 }
 
 // Sticker WM
