@@ -36,7 +36,7 @@ global.APIKeys = { // put your APIkey here
   'https://hardianto-chan.herokuapp.com': 'hardianto',
   'https://neoxr-api.herokuapp.com': 'yntkts',
   'https://pencarikode.xyz': 'pais',
-  'https://api.xteam.xyz': 'cd6537ea8548c561', // Don't stole my Apikey AssHole!! register on the website right away!
+  'https://api.xteam.xyz': 'FuzBot1' //'cd6537ea8548c561', // Don't stole my Apikey AssHole!! register on the website right away!
   'https://api.zeks.xyz': 'ShiroNeko',
   'https://leyscoders-api.herokuapp.com': 'dappakntlll',
   'https://api.dapuhy.xyz': 'Kontolodon', // backup 'Dappangentot' || Don't stole my Apikey AssHole!! register on the website right away!
