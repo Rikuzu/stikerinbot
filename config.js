@@ -11,7 +11,7 @@
 let fs = require('fs')
 let chalk = require('chalk')
 
-global.owner = ['682211984550']
+global.owner = ['6282211984550']
 
 global.APIs = { // API Prefix
 	amel: 'https://melcanz.com',
@@ -36,7 +36,7 @@ global.APIKeys = { // put your APIkey here
   'https://hardianto-chan.herokuapp.com': 'hardianto',
   'https://neoxr-api.herokuapp.com': 'yntkts',
   'https://pencarikode.xyz': 'pais',
-  'https://api.xteam.xyz': 'b60895923ed66c2c', //'cd6537ea8548c561', // Don't stole my Apikey AssHole!! register on the website right away!
+  'https://api.xteam.xyz': 'cd6537ea8548c561', // Don't stole my Apikey AssHole!! register on the website right away!
   'https://api.zeks.xyz': 'ShiroNeko',
   'https://leyscoders-api.herokuapp.com': 'dappakntlll',
   'https://api.dapuhy.xyz': 'Kontolodon', // backup 'Dappangentot' || Don't stole my Apikey AssHole!! register on the website right away!
@@ -44,19 +44,19 @@ global.APIKeys = { // put your APIkey here
 }
 
 // Sticker WM
-global.packname = ''
-global.author = '𝙁𝙤𝙡𝙡𝙤𝙬 𝙄𝙣𝙨𝙩𝙖𝙜𝙧𝙖𝙢:\n\n • @ningenkankei.id\n • @khaelll._'
+global.packname = 'Made by ♥️ with Agil'
+global.author = 'I hope u are fine'
 
-global.watermark = '© khael'
-global.wm = '© WhatsApp Bot'
-global.wait = '```Chottomatte kudasai```'
-global.eror = '*_MAY SOMETHING ERROR_*'
+global.watermark = '© Agil Ussani Rahman'
+global.wm = '© Agill'
+global.wait = '```Waitt```'
+global.eror = '*Mungkin ada yang error*'
 global.benar = '✅'
 global.salah = '❌'
 global.dikit = 'Hampir benar'
 global.fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text='
 
-global.multiplier = 1000000 // Semakin tinggi, semakin sulit naik level
+global.multiplier = 69 // Semakin tinggi, semakin sulit naik level
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
