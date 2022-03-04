@@ -213,7 +213,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 ├ ${_p + command} owner
 └────  
 `.trim()
-await conn.send2ButtonLoc(m.chat, await (await fetch(fla + "List+Menu")).buffer(), menubisnis, 'made with ❤️ by Khael', 'Pemilik Bot', `${_p}owner`, 'Donasi', `${_p}donasi`, m)
+await conn.send2ButtonLoc(m.chat, await (await fetch(fla + "List+Menu")).buffer(), menubisnis, 'made with ❤️ by Agil Ussani Rahman', 'Pemilik Bot', `${_p}owner`, 'Donasi', `${_p}donasi`, m)
     
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
