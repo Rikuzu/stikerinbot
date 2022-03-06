@@ -9,16 +9,16 @@ handler.all = async function (m, { conn, isBlocked }) {
     let { banned } = db.data.users[m.sender]
 
     // ketika ditag 
-    if (m.isGroup) {
-        if (m.mentionedJid.includes(this.user.jid)) {
-            await this.send2Button(m.chat,
-                isBanned ? 'Bot tidak aktif' : banned ? 'kamu dibanned' : 'Bot aktif',
-                watermark,
-                isBanned ? 'Unban' : banned ? 'Pemilik Bot' : 'Menu',
-                isBanned ? '.unban' : banned ? '.owner' : '.?',
-                m.isGroup ? 'Ban' : isBanned ? 'Unban' : 'Donasi',
-                m.isGroup ? '.ban' : isBanned ? '.unban' : '.donasi', m)
-        }
+    if //(m.isGroup) {
+       // if (m.mentionedJid.includes(this.user.jid)) {
+       //     await this.send2Button(m.chat,
+       //         isBanned ? 'Bot tidak aktif' : banned ? 'kamu dibanned' : 'Bot aktif',
+       //         watermark,
+       //         isBanned ? 'Unban' : banned ? 'Pemilik Bot' : 'Menu',
+       //         isBanned ? '.unban' : banned ? '.owner' : '.?',
+       //         m.isGroup ? 'Ban' : isBanned ? 'Unban' : 'Donasi',
+       //         m.isGroup ? '.ban' : isBanned ? '.unban' : '.donasi', m)
+       // }
     }
 
     // ketika ada yang invite/kirim link grup di chat pribadi
@@ -28,7 +28,7 @@ handler.all = async function (m, { conn, isBlocked }) {
 ├ 30 Hari / Rp 10,000
 └────
 
-https://github.com/ariffb25/stikerinbot
+
 `.trim(), watermark, 'Pemilik Bot', ',owner', m)
     }
 
