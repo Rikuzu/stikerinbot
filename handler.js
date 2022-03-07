@@ -120,14 +120,14 @@ module.exports = {
           if (!'anticall' in settings) settings.anticall = true
           if (!'antispam' in settings) settings.antispam = true
           if (!'antitroli' in settings) settings.antitroli = false
-          if (!'autoupdatestatus' in settings) settings.autoupdatestatus = true
+          if (!'autoupdatestatus' in settings) settings.autoupdatestatus = false
           if (!'backup' in settings) settings.backup = false
           if (!'buggc' in settings) settings.buggc = true
           if (!isNumber(settings.backupTime)) settings.backupTime = 0
           if (!'group' in settings) settings.group = false
           if (!'jadibot' in settings) settings.jadibot = true
           if (!'nsfw' in settings) settings.nsfw = true
-          if (!'restrict' in settings) settings.restrict = false
+          if (!'restrict' in settings) settings.restrict = true
           if (!'self' in settings) settings.self = false
           if (!isNumber(settings.status)) settings.status = 0
         } else global.db.data.settings[this.user.jid] = {
@@ -135,14 +135,14 @@ module.exports = {
           anticall: true,
           antispam: true,
           antitroli: false,
-          autoupdatestatus: true,
+          autoupdatestatus: false,
           backup: false,
           buggc: true,
           backupTime: 0,
           group: false,
           jadibot: true,
           nsfw: true,
-          restrict: false,
+          restrict: true,
           self: false,
           status: 0,
         }
@@ -394,44 +394,31 @@ module.exports = {
       case 'add':
       case 'remove':
         if (chat.welcome) {
-          let groupMetadata = await this.groupMetadata(jid)
-          for (let user of participants) {
-            // let pp = './src/avatar_contact.png'
-            let pp = 'https://i.ibb.co/jr9Nh6Q/Thumb.jpg'
-            let ppgc = 'https://i.ibb.co/jr9Nh6Q/Thumb.jpg'
-            try {
-              pp = await uploadImage(await (await fetch(await this.getProfilePicture(user))).buffer())
-              ppgc = await uploadImage(await (await fetch(await this.getProfilePicture(jid))).buffer())
-            } catch (e) {
-            } finally {
-              text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Selamat datang, @user!').replace('@subject', this.getName(jid)).replace('@desc', groupMetadata.desc ? String.fromCharCode(8206).repeat(4001) + groupMetadata.desc : '') :
-                (chat.sBye || this.bye || conn.bye || 'Sampai jumpa, @user!')).replace(/@user/g, '@' + user.split`@`[0])
-              let wel = await new knights.Welcome()
-                .setUsername(this.getName(user))
-                .setGuildName(this.getName(jid))
-                .setGuildIcon(ppgc)
-                .setMemberCount(groupMetadata.participants.length)
-                .setAvatar(pp)
-                .setBackground("https://i.ibb.co/KhtRxwZ/dark.png")
-                .toAttachment()
-
-              let lea = await new knights.Goodbye()
-                .setUsername(this.getName(user))
-                .setGuildName(this.getName(jid))
-                .setGuildIcon(ppgc)
-                .setMemberCount(groupMetadata.participants.length)
-                .setAvatar(pp)
-                .setBackground("https://i.ibb.co/KhtRxwZ/dark.png")
-                .toAttachment()
-
-              this.sendFile(jid, action === 'add' ? wel.toBuffer() : lea.toBuffer(), 'pp.jpg', text, null, false, {
-                contextInfo: {
-                  mentionedJid: [user]
-                }
-              })
+            let groupMetadata = await this.groupMetadata(jid)
+            for (let user of participants) {
+              //let pp = './src/null.png'
+              let kai = await(await fetch('https://telegra.ph/file/2d99cbcc77b6de06ab84c.jpg')).buffer()
+              let poi = await(await fetch('https://telegra.ph/file/dc25203e95b3bf2b39620.jpg')).buffer()
+              try {
+                pp = await uploadImage(await (await fetch(await this.getProfilePicture(user))).buffer())
+              } catch (e) {
+              } finally {
+                text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || '👋🏿Welcome @user!').replace('@subject', this.getName(jid)).replace('@desc', groupMetadata.desc) :
+                  (chat.sBye || this.bye || conn.bye || '👋Good Bye @user!\nMay you rest in peace')).replace(/@user/g, '@' + user.split`@`[0])
+                let wel = '・𝙿𝚊𝚛𝚝𝚒𝚌𝚒𝚙𝚊𝚗𝚝 𝙹𝚘𝚒𝚗/𝙰𝚍𝚍𝚎𝚍・'
+                let lea = '・𝙿𝚊𝚛𝚝𝚒𝚌𝚒𝚙𝚊𝚗𝚝 𝙻𝚎𝚊𝚟𝚎/𝙺𝚒𝚌𝚔・'
+                this.reply(jid, text, 0, { thumbnail: kai, contextInfo: {
+                  mentionedJid: [user],
+                  externalAdReply: {
+                    mediaUrl: 'https://youtu.be/-tKVN2mAKRI',
+                    title: action === 'add' ? wel : lea,
+                    body: watermark,
+                    thumbnail: kai
+                  }
+                }}) 
+              }
             }
           }
-        }
         break
       case 'promote':
         text = (chat.sPromote || this.spromote || conn.spromote || '@user sekarang Admin')
