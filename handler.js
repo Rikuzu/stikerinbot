@@ -391,14 +391,15 @@ module.exports = {
     let chat = global.db.data.chats[jid] || {}
     let text = ''
     switch (action) {
-      case 'add':
-      case 'remove':
-        if (chat.welcome) {
+        case 'add':
+        case 'remove':
+          if (chat.welcome) {
             let groupMetadata = await this.groupMetadata(jid)
             for (let user of participants) {
-              //let pp = './src/null.png'
-              let kai = await(await fetch('https://telegra.ph/file/2d99cbcc77b6de06ab84c.jpg')).buffer()
-              let poi = await(await fetch('https://telegra.ph/file/dc25203e95b3bf2b39620.jpg')).buffer()
+              let pp = './src/null.png'
+              let array_image = ['https://telegra.ph/file/133b12e57776e4d17cf4c.png', 'https://telegra.ph/file/2d99cbcc77b6de06ab84c.jpg', 'https://telegra.ph/file/dc25203e95b3bf2b39620.jpg']
+			  let selected_image = pickRandom(array_image)
+			  let random_image = await(await fetch(selected_image)).buffer()
               try {
                 pp = await uploadImage(await (await fetch(await this.getProfilePicture(user))).buffer())
               } catch (e) {
@@ -407,19 +408,19 @@ module.exports = {
                   (chat.sBye || this.bye || conn.bye || '👋Good Bye @user!\nMay you rest in peace')).replace(/@user/g, '@' + user.split`@`[0])
                 let wel = '・𝙿𝚊𝚛𝚝𝚒𝚌𝚒𝚙𝚊𝚗𝚝 𝙹𝚘𝚒𝚗/𝙰𝚍𝚍𝚎𝚍・'
                 let lea = '・𝙿𝚊𝚛𝚝𝚒𝚌𝚒𝚙𝚊𝚗𝚝 𝙻𝚎𝚊𝚟𝚎/𝙺𝚒𝚌𝚔・'
-                this.reply(jid, text, 0, { thumbnail: kai, contextInfo: {
+                this.reply(jid, text, 0, { thumbnail: random_image, contextInfo: {
                   mentionedJid: [user],
                   externalAdReply: {
                     mediaUrl: 'https://youtu.be/-tKVN2mAKRI',
                     title: action === 'add' ? wel : lea,
                     body: watermark,
-                    thumbnail: kai
+                    thumbnail: random_image
                   }
                 }}) 
               }
             }
           }
-        break
+          break
       case 'promote':
         text = (chat.sPromote || this.spromote || conn.spromote || '@user sekarang Admin')
       case 'demote':
@@ -502,3 +503,7 @@ fs.watchFile(file, () => {
   delete require.cache[file]
   if (global.reloadHandler) console.log(global.reloadHandler())
 })
+
+function pickRandom(list) {
+return list[Math.floor(Math.random() * list.length)]
+}
